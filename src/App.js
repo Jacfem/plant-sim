@@ -1,28 +1,43 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
+import { seedData } from './seedData';
+import PlantList from './PlantList';
+import Plant from './Plant';
+
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const findMatchedPlant = match => seedData.find(obj => obj.slug === match.params.slug);
 
-export default App;
+const Home = () => <h1>Grow Something!</h1>;
+
+const PlantWithRouting = ({ match }) => <Plant plant={findMatchedPlant(match)} />;
+
+const AppWithRouting = () => (
+  <Router>
+    <div>
+      <div className="app">
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/plants/">Browse Plants</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Route path="/" exact component={Home} />
+        <Route path="/plants/" component={PlantList} />
+        <Route path="/plant/:slug" component={PlantWithRouting} />
+      </div>
+    </div>
+  </Router>
+);
+
+export default AppWithRouting;
+
+
+// If they are getting close to the right number of clicks (1 away from each max)
+// -render 'your crops are almost ready to harvest! tread carefully on your care!'
