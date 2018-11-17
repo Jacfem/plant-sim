@@ -1,0 +1,13 @@
+.unstyledList {
+  list-style: none;
+  padding-left: 0; /* unset hidden padding from list style */
+}
+
+.showOnHover { /* very quick 'hide and show' effect to make seedData less obvious */
+  background-color: light-gray;
+  opacity: 0;
+}
+
+.showOnHover:hover {
+  opacity: 1;
+}

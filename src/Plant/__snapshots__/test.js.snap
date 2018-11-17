@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Plant /> #render matches snapshot 1`] = `
+<Fragment>
+  <button
+    onClick={[Function]}
+  >
+    Try again
+  </button>
+  <h1>
+    Stubbed Plant
+  </h1>
+  <h2>
+    Your plant is still growing, hooray!
+  </h2>
+  <button
+    onClick={[Function]}
+  >
+    Water
+  </button>
+  <p>
+    0
+  </p>
+  <p>
+    Keep going...
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Give Light
+  </button>
+  <p>
+    0
+  </p>
+  <p>
+    Keep going...
+  </p>
+  <button
+    onClick={[Function]}
+  >
+    Fertilizer
+  </button>
+  <p>
+    0
+  </p>
+  <p>
+    Keep going...
+  </p>
+  <img
+    alt="Stubbed Plant"
+    src="picture.url"
+    style={
+      Object {
+        "width": "10%",
+      }
+    }
+  />
+</Fragment>
+`;

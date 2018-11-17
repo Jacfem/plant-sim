@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PlantInfo /> #render matches snapshot 1`] = `
+<li
+  key="0"
+>
+  <div
+    className="plantContainer"
+  >
+    <h3>
+      Stubbed Plant
+      :
+      <Link
+        replace={false}
+        to="/plant/stubbed-plant"
+      >
+        Try it!
+      </Link>
+    </h3>
+    <p>
+      Water:
+      <span
+        className="showOnHover"
+      >
+        9
+      </span>
+    </p>
+    <p>
+      Days needed:
+      <span
+        className="showOnHover"
+      >
+        5
+      </span>
+    </p>
+    <p>
+      Fertilizer:
+      <span
+        className="showOnHover"
+      >
+        8
+      </span>
+    </p>
+  </div>
+</li>
+`;
