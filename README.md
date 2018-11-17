@@ -8,4 +8,4 @@ To get your server running, type `npm start` or `yarn start`, which will open th
 
 Browse around and try to grow some plants without caring for them *too* much!
 
-To run the tests, type `npm test` or `yarn test`.
+To run the tests, type `npm test` or `yarn test`. Type `a` when the test server prompts you with options, to run them all.
