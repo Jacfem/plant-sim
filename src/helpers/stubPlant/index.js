@@ -1,3 +1,4 @@
+// To provide a shareable plant object for use in tests
 export const stubPlant = {
   plant: {
     key: '0',
