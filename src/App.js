@@ -8,6 +8,7 @@ import Plant from './Plant';
 import './App.css';
 
 const findMatchedPlant = match => seedData.find(obj => obj.slug === match.params.slug);
+// Would want 404 handling here if you request a plant we don't have
 
 const Home = () => <h1>Grow Something!</h1>;
 
@@ -15,23 +16,21 @@ const PlantWithRouting = ({ match }) => <Plant plant={findMatchedPlant(match)} /
 
 const AppWithRouting = () => (
   <Router>
-    <div>
-      <div className="app">
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/plants/">Browse Plants</Link>
-            </li>
-          </ul>
-        </nav>
+    <div className="app">
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/plants/">Browse Plants</Link>
+          </li>
+        </ul>
+      </nav>
 
-        <Route path="/" exact component={Home} />
-        <Route path="/plants/" component={PlantList} />
-        <Route path="/plant/:slug" component={PlantWithRouting} />
-      </div>
+      <Route path="/" exact component={Home} />
+      <Route path="/plants/" component={PlantList} />
+      <Route path="/plant/:slug" component={PlantWithRouting} />
     </div>
   </Router>
 );

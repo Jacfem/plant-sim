@@ -10,9 +10,6 @@ exports[`<Plant /> #render matches snapshot 1`] = `
   <h1>
     Stubbed Plant
   </h1>
-  <h2>
-    Your plant is still growing, hooray!
-  </h2>
   <button
     onClick={[Function]}
   >

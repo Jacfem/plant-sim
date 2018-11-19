@@ -1,3 +1,4 @@
+// Mimics what we might receive from an API or DB lookup
 export const seedData = [
   {
     name: 'Herbs',

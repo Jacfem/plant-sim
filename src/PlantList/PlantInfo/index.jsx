@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import './styles.css';
@@ -30,6 +31,17 @@ const PlantInfo = props => (
   </li>
 );
 
-// Add propTypes required here
+PlantInfo.propTypes = {
+  plant: PropTypes.shape({
+    key: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    needs: PropTypes.shape({
+      fertilizer: PropTypes.number.isRequired,
+      sunlight: PropTypes.number.isRequired,
+      water: PropTypes.number.isRequired,
+    }).isRequired,
+    slug: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default PlantInfo;
