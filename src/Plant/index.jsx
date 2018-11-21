@@ -25,11 +25,12 @@ class Plant extends Component {
     water: 0,
   }
 
-  componentDidUpdate() {
-    this.calculateSizeOfPlant(this.props.plant);
-  }
+  incrementTask = async (task) => {
+    await this.setState({ [task]: this.state[task] + 1 }); // would push you over the edge to gameOver
 
-  incrementTask = task => this.setState({ [task]: this.state[task] + 1 })
+    const gameOverEval = this.isGameOver(task, this.state[task]);
+    this.setState({ gameOver: gameOverEval, gameWon: this.wonGame() });
+  }
 
   totalNeededCareUnits = plant => (
     plant.needs.water +
@@ -50,7 +51,15 @@ class Plant extends Component {
       this.statusMessage(taskName, taskState)
   )
 
-  isGameOver = (taskName, taskState) => taskState > this.props.plant.needs[taskName]
+  wonGame = () => {
+    const { plant } = this.props;
+
+    return this.state.water === plant.needs.water &&
+    this.state.sunlight === plant.needs.sunlight &&
+    this.state.fertilizer === plant.needs.fertilizer;
+  }
+
+  isGameOver = (taskName, taskState) => taskState > this.props.plant.needs[taskName] // if any task is over, its game over
 
   alertGameOver = message => alert(message);
 
@@ -86,17 +95,34 @@ class Plant extends Component {
       <React.Fragment>
         <button onClick={this.resetState}>Try again</button>
         <h1>{plant.name}</h1>
+        <h2>{this.state.gameOver ? 'game over' : 'not game over'}</h2>
+        <h2>{this.state.gameWon ? 'you have won' : 'have not won'}</h2>
 
         { /* Would want to refactor these into 'TaskButtons' */}
-        <button onClick={() => this.incrementTask('water')}>Water</button>
+        <button
+          className="taskButton"
+          onClick={() => this.incrementTask('water')}
+        >
+          Water
+        </button>
         <p>{this.state.water}</p>
         <p>{this.evaluateTaskStatus('water', this.state.water)}</p>
 
-        <button onClick={() => this.incrementTask('sunlight')}>Give Light</button>
+        <button
+          className="taskButton"
+          onClick={() => this.incrementTask('sunlight')}
+        >
+          Give Light
+        </button>
         <p>{this.state.sunlight}</p>
         <p>{this.evaluateTaskStatus('sunlight', this.state.sunlight)}</p>
 
-        <button onClick={() => this.incrementTask('fertilizer')}>Fertilizer</button>
+        <button
+          className="taskButton"
+          onClick={() => this.incrementTask('fertilizer')}
+        >
+          Fertilizer
+        </button>
         <p>{this.state.fertilizer}</p>
         <p>{this.evaluateTaskStatus('fertilizer', this.state.fertilizer)}</p>
 

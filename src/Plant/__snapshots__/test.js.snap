@@ -10,7 +10,14 @@ exports[`<Plant /> #render matches snapshot 1`] = `
   <h1>
     Stubbed Plant
   </h1>
+  <h2>
+    not game over
+  </h2>
+  <h2>
+    have not won
+  </h2>
   <button
+    className="taskButton"
     onClick={[Function]}
   >
     Water
@@ -22,6 +29,7 @@ exports[`<Plant /> #render matches snapshot 1`] = `
     Keep going...
   </p>
   <button
+    className="taskButton"
     onClick={[Function]}
   >
     Give Light
@@ -33,6 +41,7 @@ exports[`<Plant /> #render matches snapshot 1`] = `
     Keep going...
   </p>
   <button
+    className="taskButton"
     onClick={[Function]}
   >
     Fertilizer
